@@ -1,0 +1,129 @@
+﻿<Application
+    x:Class="Chackers.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Chackers">
+
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <Style x:Key="MenuButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="#2C1810"/>
+                <Setter Property="Foreground" Value="#FFD700"/>
+                <Setter Property="BorderBrush" Value="#FFD700"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="Padding" Value="20,10"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="PointerOver">
+                                            <VisualState.Setters>
+                                                <Setter Target="BackgroundElement.Fill" Value="#3C2820"/>
+                                                <Setter Target="BorderElement.Stroke" Value="#FFE44D"/>
+                                                <Setter Target="ContentPresenter.Foreground" Value="#FFE44D"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <VisualState.Setters>
+                                                <Setter Target="BackgroundElement.Fill" Value="#4C3830"/>
+                                                <Setter Target="BorderElement.Stroke" Value="#FFE44D"/>
+                                                <Setter Target="ContentPresenter.Foreground" Value="#FFE44D"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Border x:Name="BackgroundElement" 
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="5">
+                                    <ContentPresenter x:Name="ContentPresenter"
+                                                    Content="{TemplateBinding Content}"
+                                                    Foreground="{TemplateBinding Foreground}"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"/>
+                                </Border>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="AccentButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="#FFF6E7C1"/>
+                <Setter Property="Foreground" Value="#5A3A1B"/>
+                <Setter Property="BorderBrush" Value="#FFD700"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="Padding" Value="16,8"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="CornerRadius" Value="12"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal"/>
+                                        <VisualState x:Name="PointerOver">
+                                            <VisualState.Setters>
+                                                <Setter Target="BackgroundElement.Background" Value="#FFF9E9A7"/>
+                                                <Setter Target="BorderElement.BorderBrush" Value="#FFE44D"/>
+                                                <Setter Target="ContentPresenter.Foreground" Value="#B8860B"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Pressed">
+                                            <VisualState.Setters>
+                                                <Setter Target="BackgroundElement.Background" Value="#FFEEDC82"/>
+                                                <Setter Target="BorderElement.BorderBrush" Value="#FFD700"/>
+                                                <Setter Target="ContentPresenter.Foreground" Value="#8B7500"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Border x:Name="BorderElement"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                        CornerRadius="{TemplateBinding CornerRadius}"
+                                        Margin="2">
+                                    <ContentPresenter x:Name="ContentPresenter"
+                                                      Content="{TemplateBinding Content}"
+                                                      Foreground="{TemplateBinding Foreground}"
+                                                      HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center"/>
+                                </Border>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- MedievalButtonStyle -->
+            <Style x:Key="MedievalButtonStyle" TargetType="Button">
+                <Setter Property="Background" Value="#FFD700"/>
+                <Setter Property="Foreground" Value="#5A3A1B"/>
+                <Setter Property="FontFamily" Value="Luminari, Trajan Pro, Copperplate Gothic, Algerian, Segoe UI"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="BorderBrush" Value="#8B4513"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="CornerRadius" Value="12"/>
+            </Style>
+
+            <!-- TitleTextBlockStyle -->
+            <Style x:Key="TitleTextBlockStyle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="32"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Foreground" Value="#FFD700"/>
+                <Setter Property="FontFamily" Value="Luminari, Trajan Pro, Copperplate Gothic, Algerian, Segoe UI"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

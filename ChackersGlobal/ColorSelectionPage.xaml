@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Chackers.ColorSelectionPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Chackers"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="#2C1810">
+
+    <Page.Resources>
+        <Style x:Key="DragonButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Border x:Name="ButtonBorder"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="20">
+                                <ContentPresenter Content="{TemplateBinding Content}"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"/>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Storyboard x:Name="WhitePieceClickStoryboard">
+            <DoubleAnimation Storyboard.TargetName="WhitePieceScale"
+                             Storyboard.TargetProperty="ScaleX"
+                             To="1.18" Duration="0:0:0.09" />
+            <DoubleAnimation Storyboard.TargetName="WhitePieceScale"
+                             Storyboard.TargetProperty="ScaleY"
+                             To="1.18" Duration="0:0:0.09" />
+            <DoubleAnimation Storyboard.TargetName="WhitePieceScale"
+                             Storyboard.TargetProperty="ScaleX"
+                             To="1.0" BeginTime="0:0:0.09" Duration="0:0:0.12" />
+            <DoubleAnimation Storyboard.TargetName="WhitePieceScale"
+                             Storyboard.TargetProperty="ScaleY"
+                             To="1.0" BeginTime="0:0:0.09" Duration="0:0:0.12" />
+        </Storyboard>
+        <Storyboard x:Name="BlackPieceClickStoryboard">
+            <DoubleAnimation Storyboard.TargetName="BlackPieceScale"
+                             Storyboard.TargetProperty="ScaleX"
+                             To="1.18" Duration="0:0:0.09" />
+            <DoubleAnimation Storyboard.TargetName="BlackPieceScale"
+                             Storyboard.TargetProperty="ScaleY"
+                             To="1.18" Duration="0:0:0.09" />
+            <DoubleAnimation Storyboard.TargetName="BlackPieceScale"
+                             Storyboard.TargetProperty="ScaleX"
+                             To="1.0" BeginTime="0:0:0.09" Duration="0:0:0.12" />
+            <DoubleAnimation Storyboard.TargetName="BlackPieceScale"
+                             Storyboard.TargetProperty="ScaleY"
+                             To="1.0" BeginTime="0:0:0.09" Duration="0:0:0.12" />
+        </Storyboard>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        
+        <Image Source="ms-appx:///Assets/dragon_decor.png"
+               Stretch="UniformToFill"
+               Opacity="0.12"
+               IsHitTestVisible="False"
+               VerticalAlignment="Stretch"
+               HorizontalAlignment="Stretch"
+               Grid.RowSpan="3"/>
+
+       
+        <StackPanel Orientation="Vertical" Grid.Row="0" HorizontalAlignment="Center" Margin="0,40,0,10">
+            <TextBlock Text="Choose Your Dragon"
+                       Style="{StaticResource TitleTextBlockStyle}"
+                       HorizontalAlignment="Center"
+                       FontSize="36"
+                       FontFamily="Luminari, Trajan Pro, Copperplate Gothic, Algerian, Segoe UI"
+                       Foreground="#FFD700"/>
+            <Rectangle Height="4" Width="320" Fill="#FFD700" RadiusX="2" RadiusY="2" Margin="0,10,0,0" Opacity="0.7"/>
+        </StackPanel>
+
+        
+        <TextBlock Grid.Row="0"
+                   Margin="40,130,40,0"
+                   Text="By choosing your dragon, you choose your true path. May your chosen dragon keep you safe throughout the game, throughout the dance."
+                   FontSize="18"
+                   FontStyle="Italic"
+                   FontFamily="Luminari, Trajan Pro, Copperplate Gothic, Algerian, Segoe UI"
+                   Foreground="#FFD700"
+                   Opacity="0.8"
+                   TextAlignment="Center"
+                   HorizontalAlignment="Center"
+                   TextWrapping="Wrap"/>
+
+    
+        <Grid Grid.Row="1" Margin="0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+           
+            <StackPanel Grid.Column="0" HorizontalAlignment="Center" Margin="30,0,30,0">
+                <Button x:Name="WhiteButton"
+                        Click="WhiteButton_Click"
+                        Style="{StaticResource DragonButtonStyle}"
+                        Width="420"
+                        Height="520"
+                        Margin="10"
+                        HorizontalAlignment="Center"
+                        PointerEntered="Button_PointerEntered"
+                        PointerExited="Button_PointerExited">
+                    <Viewbox Stretch="Uniform" Width="420" Height="520">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="White Dragon"
+                                       Foreground="#FF69B4"
+                                       FontSize="24"
+                                       FontFamily="Luminari, Trajan Pro, Copperplate Gothic, Algerian, Segoe UI"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,0,0,20"/>
+                            <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="WhitePieceContainer">
+                                <Grid.RenderTransform>
+                                    <ScaleTransform x:Name="WhitePieceScale" ScaleX="1" ScaleY="1"/>
+                                </Grid.RenderTransform>
+                                <Ellipse Width="360" Height="360" Fill="#33FF69B4" />
+                                <Ellipse x:Name="WhitePieceImage"
+                                         Width="340"
+                                         Height="340"
+                                         Stroke="#FF69B4"
+                                         StrokeThickness="3">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="ms-appx:///Assets/white_piece.png"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                            </Grid>
+                            <TextBlock x:Name="WhiteDragonText"
+                                       Grid.Row="2"
+                                       Text="White Dragon"
+                                       Foreground="#FF69B4"
+                                       FontSize="18"
+                                       FontFamily="Luminari, Trajan Pro, Copperplate Gothic, Algerian, Segoe UI"
+                                       HorizontalAlignment="Center"
+                                       Opacity="0"
+                                       Margin="0,20,0,0"/>
+                        </Grid>
+                    </Viewbox>
+                </Button>
+            </StackPanel>
+
+            
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center" Margin="30,0,30,0">
+                <Button x:Name="BlackButton"
+                        Click="BlackButton_Click"
+                        Style="{StaticResource DragonButtonStyle}"
+                        Width="420"
+                        Height="520"
+                        Margin="10"
+                        HorizontalAlignment="Center"
+                        PointerEntered="Button_PointerEntered"
+                        PointerExited="Button_PointerExited">
+                    <Viewbox Stretch="Uniform" Width="420" Height="520">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Black Dragon"
+                                       Foreground="#00BFFF"
+                                       FontSize="24"
+                                       FontFamily="Luminari, Trajan Pro, Copperplate Gothic, Algerian, Segoe UI"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,0,0,20"/>
+                            <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="BlackPieceContainer">
+                                <Grid.RenderTransform>
+                                    <ScaleTransform x:Name="BlackPieceScale" ScaleX="1" ScaleY="1"/>
+                                </Grid.RenderTransform>
+                                <Ellipse Width="360" Height="360" Fill="#3300BFFF" />
+                                <Ellipse x:Name="BlackPieceImage"
+                                         Width="340"
+                                         Height="340"
+                                         Stroke="#00BFFF"
+                                         StrokeThickness="3">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="ms-appx:///Assets/black_piece.png"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                            </Grid>
+                            <TextBlock x:Name="BlackDragonText"
+                                       Grid.Row="2"
+                                       Text="Black Dragon"
+                                       Foreground="#00BFFF"
+                                       FontSize="18"
+                                       FontFamily="Luminari, Trajan Pro, Copperplate Gothic, Algerian, Segoe UI"
+                                       HorizontalAlignment="Center"
+                                       Opacity="0"
+                                       Margin="0,20,0,0"/>
+                        </Grid>
+                    </Viewbox>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        
+        <StackPanel Grid.Row="2" Margin="0,0,0,20">
+            <Button x:Name="StartGameButton"
+                    Content="Start Game"
+                    Click="StartGameButton_Click"
+                    Style="{StaticResource MenuButtonStyle}"
+                    Width="300"
+                    Height="60"
+                    FontSize="24"
+                    IsEnabled="False"
+                    Opacity="0.5"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,20">
+                <Button.Resources>
+                    <Storyboard x:Name="StartButtonAnimation">
+                        <DoubleAnimation
+                            Storyboard.TargetName="StartGameButton"
+                            Storyboard.TargetProperty="Opacity"
+                            From="0.3" To="1" Duration="0:0:0.5"
+                            AutoReverse="True" RepeatBehavior="Forever"/>
+                    </Storyboard>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="BackButton"
+                    Content="Back"
+                    Click="BackButton_Click"
+                    Style="{StaticResource MenuButtonStyle}"
+                    Width="200"
+                    Height="50"
+                    FontSize="20"
+                    HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Page> 
